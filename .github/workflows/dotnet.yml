@@ -57,7 +57,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./dncoreapi
-          file: Dockerfile
+          file: ./Dockerfile
           push: true
           tags: ${{ steps.prep.outputs.tags }}
 
@@ -94,6 +94,6 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./dncoredb
-          file: Dockerfile
+          file: ./Dockerfile
           push: true
           tags: ${{ steps.prep.outputs.tags }}
