@@ -56,8 +56,8 @@ jobs:
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: dncoreapi/Dockerfile
+          context: ../../dncoreapi
+          file: Dockerfile
           push: true
           tags: ${{ steps.prep.outputs.tags }}
 
@@ -93,7 +93,7 @@ jobs:
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v2
         with:
-          context: .
-          file: dncoredb/Dockerfile
+          context: ../../dncoredb
+          file: Dockerfile
           push: true
           tags: ${{ steps.prep.outputs.tags }}
