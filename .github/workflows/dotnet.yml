@@ -24,8 +24,8 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
 
-push_to_registry:
-    name: Push Core Api image to GitHub Packages
+  push_api_image:
+    name: Push Core Api image to ghcr.
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
@@ -61,8 +61,8 @@ push_to_registry:
           push: true
           tags: ${{ steps.prep.outputs.tags }}
 
-push_to_registry:
-    name: Push DB image to GitHub Packages
+  push_db_image:
+    name: Push DB image to ghcr.
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
