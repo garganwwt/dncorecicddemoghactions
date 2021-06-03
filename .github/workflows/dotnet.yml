@@ -25,7 +25,7 @@ jobs:
       run: dotnet test --no-build --verbosity normal
 
   push_api_image:
-    name: Push Core Api image to ghcr.
+    name: Push Api image to ghcr.
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repo
