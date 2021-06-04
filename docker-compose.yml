@@ -1,0 +1,40 @@
+version: '3.9'
+
+networks:
+    quick_app:
+      name: quicknetwork
+      driver: bridge
+
+services:
+    coreapi:
+        image: dncoreapi
+        build:
+            context: ./dncoreapi
+            dockerfile: Dockerfile
+        environment: 
+            DB_CONN_STR: "host=;port=5432;database=;user id=;password="
+        ports:
+            - "5001:80"
+        networks: 
+            - quick_app   
+        depends_on:
+            - "coreapidb"  
+    
+    coreapidb:
+        image: dncoredb
+        build:
+            context: ./dncoredb
+            dockerfile: Dockerfile
+        environment:
+            POSTGRES_DB: 'coredb'
+            POSTGRES_HOST_AUTH_METHOD: 'trust'
+        volumes:
+            - local_coredb_volume:/var/lib/postgresql/coredb
+            - ./dncoredb:/docker-entrypoint-initdb.d/
+        ports:
+            - 5432:5432
+        networks: 
+            - quick_app
+            
+volumes:
+    local_coredb_volume: {}
