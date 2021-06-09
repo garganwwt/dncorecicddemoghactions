@@ -33,7 +33,7 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          DOCKER_IMAGE=ghcr.io/srirangv/dncorecicddemoghactions/dncoreapi
+          DOCKER_IMAGE=ghcr.io/garganwwt/dncorecicddemoghactions/dncoreapi
           VERSION=latest
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/v}
@@ -70,7 +70,7 @@ jobs:
       - name: Prepare
         id: prep
         run: |
-          DOCKER_IMAGE=ghcr.io/srirangv/dncorecicddemoghactions/dncoredb
+          DOCKER_IMAGE=ghcr.io/garganwwt/dncorecicddemoghactions/dncoredb
           VERSION=latest
           if [[ $GITHUB_REF == refs/tags/* ]]; then
             VERSION=${GITHUB_REF#refs/tags/v}
